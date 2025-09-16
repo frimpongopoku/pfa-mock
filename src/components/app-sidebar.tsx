@@ -112,36 +112,21 @@ const data = {
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
     <Sidebar collapsible="icon" {...props}>
-      <SidebarHeader>
+      <SidebarHeader className="p-0!">
         <motion.div
-          className="flex items-center gap-3 mb-4"
+          className="flex items-center p-5 px-6 gap-3"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          {/* <div className="text-[#137fec] text-4xl flex items-center justify-center">
-            <Coins className="w-10 h-10 drop-shadow-lg" />
-          </div> */}
-          <h1 className="text-[#1e293b] text-2xl font-bold">CeleryCoins</h1>
+          <h1 className="text-xl  font-extrabold  bg-clip-text ">
+            CeleryCoins
+          </h1>
         </motion.div>
-        {/* <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-        >
-          <UserProfile
-            user={{
-              name: data.user.name,
-              accountType: "Standard",
-              avatar: data.user.avatar,
-            }}
-          />
-        </motion.div> */}
-        {/* <TeamSwitcher teams={data.teams} /> */}
+        {/* <div className="h-1 w-full rounded bg-gradient-to-r from-green-400 via-emerald-500 to-teal-400 opacity-70 dark:from-green-700 dark:via-emerald-600 dark:to-teal-500 mt-2" /> */}
       </SidebarHeader>
-      <SidebarContent>
+      <SidebarContent className="p-4">
         <NavMain items={data.navMain} />
-        {/* <NavProjects projects={data.projects} /> */}
       </SidebarContent>
       <SidebarFooter>
         <NavUser user={data.user} />
