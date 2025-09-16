@@ -22,7 +22,7 @@ import {
   TooltipProvider,
   TooltipTrigger,
 } from "@/components/ui/tooltip";
-import { useIsMobile } from "@/hooks/use-mobile";
+import { useIsMobile, useIsTablet } from "@/hooks/use-mobile";
 import { cn } from "@/lib/utils";
 
 const SIDEBAR_COOKIE_NAME = "sidebar_state";
@@ -40,6 +40,7 @@ type SidebarContextProps = {
   setOpenMobile: (open: boolean) => void;
   isMobile: boolean;
   toggleSidebar: () => void;
+  isTablet: boolean;
 };
 
 const SidebarContext = React.createContext<SidebarContextProps | null>(null);
@@ -67,6 +68,7 @@ function SidebarProvider({
   onOpenChange?: (open: boolean) => void;
 }) {
   const isMobile = useIsMobile();
+  const isTablet = useIsTablet();
   const [openMobile, setOpenMobile] = React.useState(false);
 
   // This is the internal state of the sidebar.
@@ -122,6 +124,7 @@ function SidebarProvider({
       openMobile,
       setOpenMobile,
       toggleSidebar,
+      isTablet,
     }),
     [state, open, setOpen, isMobile, openMobile, setOpenMobile, toggleSidebar]
   );
@@ -205,9 +208,11 @@ function Sidebar({
     );
   }
 
+ 
+
   return (
     <div
-      className="group peer text-sidebar-foreground hidden md:block"
+      className="group peer text-sidebar-foreground hidden lg:block"
       data-state={state}
       data-collapsible={state === "collapsed" ? collapsible : ""}
       data-variant={variant}
@@ -478,7 +483,8 @@ const sidebarMenuButtonVariants = cva(
   {
     variants: {
       variant: {
-        default: "hover:bg-sidebar-accent font-medium hover:text-sidebar-accent-foreground",
+        default:
+          "hover:bg-sidebar-accent font-medium hover:text-sidebar-accent-foreground",
         outline:
           "bg-background shadow-[0_0_0_1px_hsl(var(--sidebar-border))] hover:bg-sidebar-accent hover:text-sidebar-accent-foreground hover:shadow-[0_0_0_1px_hsl(var(--sidebar-accent))]",
       },

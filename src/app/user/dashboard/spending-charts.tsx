@@ -124,7 +124,7 @@ const BudgetProgress: React.FC<{ budgetInfo: BudgetInfo }> = ({
 
   return (
     <motion.div
-      className="mt-6 pt-4 border-t border-slate-200"
+      className="mt-6 pt-4 border-t dark:border-gray-700 border-slate-200"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 1.2 }}

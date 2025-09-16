@@ -20,7 +20,7 @@ export const ReferralBanner: React.FC<ReferralBannerProps> = ({
   return (
     <section className="mb-8">
       <motion.div
-        className="bg-gradient-to-r from-blue-500  to-purple-500 p-6 rounded-2xl shadow-lg shadow-blue-500/20 flex items-center justify-between"
+        className="bg-gradient-to-r from-blue-500  to-purple-500 gap-2 p-6 rounded-2xl shadow-lg shadow-blue-500/20 flex flex-col sm:flex-row items-center justify-between"
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6, delay: 0.3 }}
@@ -32,7 +32,7 @@ export const ReferralBanner: React.FC<ReferralBannerProps> = ({
         </div>
         <motion.button
           onClick={onReferClick}
-          className="bg-white/20 text-white cursor-pointer font-semibold py-2 px-5 rounded-lg flex items-center gap-2 hover:bg-white/30 transition-colors duration-200 backdrop-blur-sm"
+          className="bg-white/20 w-full justify-center sm:w-auto text-white cursor-pointer font-semibold py-2 px-5 rounded-lg flex items-center gap-2 hover:bg-white/30 transition-colors duration-200 backdrop-blur-sm"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >

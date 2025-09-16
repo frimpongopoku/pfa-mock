@@ -56,10 +56,10 @@ export const ReferralsHero: React.FC<ReferralsHeroProps> = ({
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <h1 className="text-slate-900 dark:text-white/80 text-4xl font-bold leading-tight tracking-tighter">
+          <h1 className="text-slate-900 text-xl dark:text-white/80 md:text-4xl font-bold leading-tight tracking-tighter">
             {title}
           </h1>
-          <p className="text-slate-600 text-lg dark:text-white/70 leading-relaxed">
+          <p className="text-slate-600 text-sm md:lg dark:text-white/70 leading-relaxed">
             {description}
           </p>
           <motion.div
@@ -104,7 +104,7 @@ export const ReferralsHero: React.FC<ReferralsHeroProps> = ({
         </motion.div>
 
         <motion.div
-          className="w-full bg-centern  bg-no-repeat aspect-square bg-cover rounded-lg"
+          className="w-full bg-centern hidden lg:block  bg-no-repeat aspect-square bg-cover rounded-lg"
           style={{ backgroundImage: `url("${heroImageUrl}")` }}
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}

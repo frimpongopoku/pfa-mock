@@ -101,9 +101,9 @@ export const ReferralHistory: React.FC<ReferralHistoryProps> = ({
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 0.4 }}
     >
-      <div className="flex justify-between items-center mb-6">
+      <div className="flex justify-between flex-col items-start md:flex-row gap-2 md:items-center mb-6">
         <motion.h2
-          className="text-slate-900 text-2xl dark:text-white/80 font-bold tracking-tight"
+          className="text-slate-900 text-xl md:text-2xl dark:text-white/80 font-bold tracking-tight"
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}

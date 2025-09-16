@@ -111,7 +111,7 @@ const data = {
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   return (
-    <Sidebar collapsible="icon" {...props}>
+    <Sidebar className="" collapsible="icon" {...props}>
       <SidebarHeader className="p-0!">
         <motion.div
           className="flex items-center p-5 px-6 gap-3"

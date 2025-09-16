@@ -166,7 +166,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
 
   return (
     <>
-      <main className="flex-1 px-4 py-2 overflow-y-auto">
+      <main className="flex-1 px-0 sm:px-4 sm:py-2 overflow-y-auto">
         <DashboardHeader
           onConnectAccount={handleConnectAccount}
           onAddTransaction={handleAddTransaction}

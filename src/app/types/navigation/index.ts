@@ -6,6 +6,7 @@ export interface BottomNavItem {
   icon: string;
   href: string;
   isActive?: boolean;
+  locked?: boolean;
 }
 
 export interface FloatingActionButton {

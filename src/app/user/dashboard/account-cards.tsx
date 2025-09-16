@@ -23,7 +23,7 @@ const AccountCard: React.FC<AccountCardProps> = ({ account, index }) => {
 
   return (
     <motion.div
-      className="relative rounded-2xl overflow-hidden group shadow-lg dark:shadow-gray-800 shadow-slate-200"
+      className="relative rounded-2xl  overflow-hidden group shadow-lg dark:shadow-gray-800 shadow-slate-200"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: index * 0.1 }}
@@ -69,7 +69,7 @@ export const AccountCards: React.FC<AccountCardsProps> = ({ accounts }) => {
           Accounts
         </h2>
       </motion.div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="flex items-center overflow-x-scroll sm:grid grid-cols-1 md:grid-cols-2 gap-6">
         {accounts.map((account, index) => (
           <AccountCard key={account.id} account={account} index={index} />
         ))}

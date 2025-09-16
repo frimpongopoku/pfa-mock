@@ -57,13 +57,13 @@ const MilestoneIcon: React.FC<{
 export const RewardProgress: React.FC<RewardProgressProps> = ({ progress }) => {
   return (
     <motion.section
-      className="bg-white dark:bg-[var(--custom-card-background)] dark:border-gray-800 rounded-xl shadow-lg p-8 border border-slate-200 ring-4 dark:ring-gray-800 ring-white/30"
+      className="bg-white flex flex-col lg:flex-row dark:bg-[var(--custom-card-background)] dark:border-gray-800 rounded-xl shadow-lg p-8 border border-slate-200 ring-4 dark:ring-gray-800 ring-white/30"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 0.2 }}
     >
       <motion.h2
-        className="text-slate-900 dark:text-white/80 text-2xl font-bold tracking-tight mb-2"
+        className="text-slate-900 dark:text-white/80  text-xl md:text-2xl font-bold tracking-tight mb-2"
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.6, delay: 0.3 }}
@@ -72,7 +72,7 @@ export const RewardProgress: React.FC<RewardProgressProps> = ({ progress }) => {
       </motion.h2>
 
       <motion.p
-        className="text-slate-600 dark:text-white/70 mb-6"
+        className="text-slate-600 text-sm md:text-base dark:text-white/70 mb-6"
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.6, delay: 0.4 }}
@@ -82,7 +82,7 @@ export const RewardProgress: React.FC<RewardProgressProps> = ({ progress }) => {
 
       <div className="flex flex-col gap-4">
         <motion.div
-          className="flex items-center justify-between"
+          className="flex items-start flex-col lg:items-center lg:flex-row justify-between"
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.5 }}

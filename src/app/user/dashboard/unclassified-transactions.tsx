@@ -69,7 +69,7 @@ export const UnclassifiedTransactions: React.FC<
   UnclassifiedTransactionsProps
 > = ({ transactions, onAIClassify }) => {
   return (
-    <section>
+    <section className="mb-8 md:mb-24 lg:mb-4">
       <motion.h2
         className="text-[#1e293b] text-2xl font-bold  dark:text-white/80 tracking-tight mb-4"
         initial={{ opacity: 0, x: -20 }}

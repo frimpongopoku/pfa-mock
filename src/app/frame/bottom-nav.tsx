@@ -2,7 +2,7 @@
 
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import {
   LayoutDashboard,
@@ -11,8 +11,10 @@ import {
   Receipt,
   MoreHorizontal,
   Plus,
+  Lock,
 } from "lucide-react";
 import { BottomNavItem, FloatingActionButton } from "@/app/types/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 interface MobileBottomNavProps {
   activeItem?: string;
@@ -27,31 +29,34 @@ const defaultNavItems: BottomNavItem[] = [
     id: "dashboard",
     label: "Dashboard",
     icon: "LayoutDashboard",
-    href: "/dashboard",
+    href: "/user/dashboard",
   },
   {
     id: "referrals",
     label: "Referrals",
     icon: "Users",
-    href: "/referrals",
+    href: "/user/referrals",
   },
   {
     id: "reports",
     label: "Reports",
     icon: "TrendingUp",
     href: "/reports",
+    locked: true,
   },
   {
     id: "transactions",
     label: "Transactions",
     icon: "Receipt",
     href: "/transactions",
+    locked: true,
   },
   {
     id: "more",
     label: "More",
     icon: "MoreHorizontal",
     href: "/more",
+    locked: true,
   },
 ];
 
@@ -67,14 +72,14 @@ const iconMap = {
 const NavItem: React.FC<{
   item: BottomNavItem;
   isActive: boolean;
-  onClick: (itemId: string) => void;
+  onClick: (itemId: any) => void;
   position: "left" | "right";
 }> = ({ item, isActive, onClick, position }) => {
   const IconComponent = iconMap[item.icon as keyof typeof iconMap];
 
   return (
     <motion.button
-      onClick={() => onClick(item.id)}
+      onClick={() => onClick(item)}
       className={`flex flex-col items-center justify-center py-2 px-3 rounded-xl transition-all duration-300 ${
         isActive ? "text-blue-600" : "text-slate-400 hover:text-slate-600"
       }`}
@@ -96,7 +101,11 @@ const NavItem: React.FC<{
         }}
         transition={{ duration: 0.3 }}
       >
-        <IconComponent className="w-5 h-5" />
+        {item?.locked ? (
+          <Lock className="w-5 h-5" />
+        ) : (
+          <IconComponent className="w-5 h-5" />
+        )}
       </motion.div>
 
       <motion.span
@@ -132,7 +141,7 @@ const FloatingActionBtn: React.FC<{
   return (
     <motion.button
       onClick={onClick}
-      className="relative z-10 flex items-center justify-center w-14 h-14 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl shadow-lg shadow-blue-500/25 text-white"
+      className="relative z-10 flex items-center justify-center w-12 h-12 bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl shadow-lg shadow-blue-500/25 text-white"
       whileHover={{
         scale: 1.05,
       }}
@@ -161,7 +170,8 @@ const FloatingActionBtn: React.FC<{
         }}
       />
 
-      <IconComponent className="w-6 h-6 relative z-10" />
+      {/* <IconComponent className="w-6 h-6 relative z-10" /> */}
+      <Lock className="w-6 h-6 relative z-10" />
     </motion.button>
   );
 };
@@ -173,10 +183,12 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
   fabButton = { icon: "Plus", label: "Add", onClick: () => {} },
   className = "",
 }) => {
-  const handleItemClick = (itemId: string) => {
-    onItemClick?.(itemId);
-    // You can add navigation logic here
-    console.log(`Navigate to: ${itemId}`);
+  const [active, setActive] = useState();
+  const router = useRouter();
+  const handleItemClick = (item: any) => {
+    if (item?.locked) return;
+    setActive(item.id);
+    router.push(item.href);
   };
 
   const handleFabClick = () => {
@@ -184,28 +196,35 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
     fabButton.onClick();
   };
 
+  const pathname = usePathname();
   // Split nav items into left and right groups (2 items each side of FAB)
   const leftItems = defaultNavItems.slice(0, 2);
   const rightItems = defaultNavItems.slice(2, 4);
   const moreItem = defaultNavItems[4]; // The "More" item
 
+  const isReallyActive = (item: any) => {
+    if (pathname === item?.href) return true;
+
+    return active === item?.id;
+  };
+
   return (
     <>
       {/* Bottom navigation container */}
       <motion.nav
-        className={`fixed bottom-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-lg border-t border-slate-200 ${className}`}
+        className={`fixed bottom-0 left-0 right-0 z-50 dark:bg-[var(--custom-card-bg)]/90 bg-white/90 backdrop-blur-lg border-t dark:border-gray-700 border-slate-200 ${className}`}
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, type: "spring", stiffness: 100 }}
       >
-        <div className="flex items-center justify-between px-6 pt-3 pb-6">
+        <div className="flex items-center justify-between px-2 sm:px-6 pt-3 pb-6">
           {/* Left items */}
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center">
             {leftItems.map((item) => (
               <NavItem
                 key={item.id}
                 item={item}
-                isActive={activeItem === item.id}
+                isActive={isReallyActive(item)}
                 onClick={handleItemClick}
                 position="left"
               />
@@ -213,29 +232,29 @@ export const MobileBottomNav: React.FC<MobileBottomNavProps> = ({
           </div>
 
           {/* Center FAB */}
-          <div className="flex-shrink-0 mx-4">
+          <div className="flex-shrink-0 mx-2">
             <FloatingActionBtn fabButton={fabButton} onClick={handleFabClick} />
           </div>
 
           {/* Right items */}
-          <div className="flex items-center space-x-2">
+          <div className="flex items-center">
             {rightItems.map((item) => (
               <NavItem
                 key={item.id}
                 item={item}
-                isActive={activeItem === item.id}
+                isActive={isReallyActive(item)}
                 onClick={handleItemClick}
                 position="right"
               />
             ))}
 
             {/* More item */}
-            <NavItem
+            {/* <NavItem
               item={moreItem}
               isActive={activeItem === moreItem.id}
               onClick={handleItemClick}
               position="right"
-            />
+            /> */}
           </div>
         </div>
 
