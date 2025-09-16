@@ -61,13 +61,13 @@ const data = {
   navMain: [
     {
       title: "Dashboard",
-      url: "#",
+      url: "/user/dashboard",
       icon: Layout,
       isActive: true,
     },
     {
       title: "Referrals",
-      url: "#",
+      url: "/user/referrals",
       icon: Gift,
     },
     {

@@ -20,6 +20,7 @@ import {
   UnclassifiedTransaction,
 } from "@/app/types/dashboard";
 import { SpendingChart } from "./spending-charts";
+import { useRouter } from "next/navigation";
 
 // Mock data - replace with your actual data fetching
 const mockUser: User = {
@@ -145,6 +146,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
   budgetInfo = mockBudgetInfo,
   unclassifiedTransactions = mockUnclassifiedTransactions,
 }) => {
+  const router = useRouter();
   // Event handlers - replace with your actual implementations
   const handleConnectAccount = () => {
     console.log("Connect account clicked");
@@ -155,7 +157,7 @@ export const DashboardView: React.FC<DashboardViewProps> = ({
   };
 
   const handleReferClick = () => {
-    console.log("Refer clicked");
+    router.push("/user/referrals");
   };
 
   const handleAIClassify = () => {
