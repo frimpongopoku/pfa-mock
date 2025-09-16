@@ -20,11 +20,9 @@ import {
   Trophy,
 } from "lucide-react";
 import { motion } from "framer-motion";
-
 import { NavMain } from "@/components/nav-main";
-import { NavProjects } from "@/components/nav-projects";
 import { NavUser } from "@/components/nav-user";
-import { TeamSwitcher } from "@/components/team-switcher";
+
 import {
   Sidebar,
   SidebarContent,
@@ -32,14 +30,13 @@ import {
   SidebarHeader,
   SidebarRail,
 } from "@/components/ui/sidebar";
-import { UserProfile } from "@/app/user/dashboard/dashboard-sidebar";
 
 // This is sample data.
 const data = {
   user: {
-    name: "shadcn",
-    email: "m@example.com",
-    avatar: "/avatars/shadcn.jpg",
+    name: "Mr Frimpong",
+    email: "message@mrfrimpong.com",
+    avatar: "https://i.pravatar.cc/300/150?u=a042581f4e29026704d",
   },
   teams: [
     {

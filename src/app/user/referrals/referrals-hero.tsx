@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Check, Copy } from "lucide-react";
+import { Check, CheckCircle, Copy } from "lucide-react";
 
 interface ReferralsHeroProps {
   title?: string;
@@ -95,7 +95,7 @@ export const ReferralsHero: React.FC<ReferralsHeroProps> = ({
                 animate={{ scale: copied ? 1 : 0 }}
                 transition={{ duration: 0.2 }}
               >
-                <Check className="w-4 h-4 mr-2" />
+                <CheckCircle className="w-4 h-4 mr-12" />
               </motion.div>
 
               {copied ? "Copied!" : "Copy"}

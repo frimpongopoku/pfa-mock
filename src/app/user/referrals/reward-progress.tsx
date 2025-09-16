@@ -57,7 +57,7 @@ const MilestoneIcon: React.FC<{
 export const RewardProgress: React.FC<RewardProgressProps> = ({ progress }) => {
   return (
     <motion.section
-      className="bg-white flex flex-col lg:flex-row dark:bg-[var(--custom-card-background)] dark:border-gray-800 rounded-xl shadow-lg p-8 border border-slate-200 ring-4 dark:ring-gray-800 ring-white/30"
+      className="bg-white flex flex-col  dark:bg-[var(--custom-card-background)] dark:border-gray-800 rounded-xl shadow-lg p-8 border border-slate-200 ring-4 dark:ring-gray-800 ring-white/30"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 0.2 }}

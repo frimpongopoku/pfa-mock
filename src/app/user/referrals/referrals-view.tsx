@@ -61,7 +61,7 @@ const mockReferrals: ReferralHistoryItem[] = [
 
 const mockReferralCode: ReferralCode = {
   code: "aBcD123",
-  fullUrl: "pennywise.app/ref/aBcD123",
+  fullUrl: "celery-artefact.mrfrimpong.com/user/ref/aBcD123",
   isActive: true,
 };
 
