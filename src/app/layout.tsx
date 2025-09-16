@@ -3,9 +3,9 @@ import "./globals.css";
 import localFont from "next/font/local";
 import { AppThemeProvider } from "./providers/theme-provider";
 export const metadata: Metadata = {
-  title: "PFA Mock - Modern Next.js Setup",
+  title: "CeleryCoins - Demo Artefact",
   description:
-    "A modern Next.js setup with TypeScript, Tailwind CSS, Framer Motion, Shadcn/ui, and Lucide Icons",
+    "Demo personal finance application built with Next.js, Tailwind CSS, and TypeScript.",
 };
 
 const productSans = localFont({

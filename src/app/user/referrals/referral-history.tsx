@@ -151,7 +151,7 @@ export const ReferralHistory: React.FC<ReferralHistoryProps> = ({
           <thead>
             <tr className="border-b dark:border-gray-800 border-slate-200">
               <th className="px-4 py-3 text-sm font-semibold text-slate-500 dark:text-white/70">
-                Friend's Name
+                Friend&apos;s Name
               </th>
               <th className="px-4 py-3 text-sm font-semibold text-slate-500 dark:text-white/70">
                 Status

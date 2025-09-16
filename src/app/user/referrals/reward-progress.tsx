@@ -77,7 +77,7 @@ export const RewardProgress: React.FC<RewardProgressProps> = ({ progress }) => {
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.6, delay: 0.4 }}
       >
-        You're on your way to earning more rewards. Keep it up!
+        You&apos;re on your way to earning more rewards. Keep it up!
       </motion.p>
 
       <div className="flex flex-col gap-4">
