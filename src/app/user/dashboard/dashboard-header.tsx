@@ -34,22 +34,23 @@ export const DashboardHeader: React.FC<DashboardHeaderProps> = ({
 
       <div className="flex items-center gap-4">
         <CustomButton
+          className="bg-[#137fec] text-white font-semibold py-2 px-5 rounded-lg flex items-center gap-2 hover:bg-[#3b82f6] transition-colors duration-200 shadow-lg shadow-blue-500/30"
+          onClick={onAddTransaction}
+        >
+          <Plus className="w-4 h-4" />
+          Connect Account
+        </CustomButton>
+        <CustomButton
+          disabled
           onClick={onConnectAccount}
           className="bg-white text-slate-700 font-semibold py-2 px-5 rounded-lg flex items-center gap-2 hover:bg-slate-50 transition-colors duration-200 shadow-lg shadow-slate-200 border border-slate-200"
           // whileHover={{ scale: 1.02 }}
           // whileTap={{ scale: 0.98 }}
         >
           <CreditCard className="w-4 h-4" />
-          Connect Account
-        </CustomButton>
-
-        <CustomButton
-          className="bg-[#137fec] text-white font-semibold py-2 px-5 rounded-lg flex items-center gap-2 hover:bg-[#3b82f6] transition-colors duration-200 shadow-lg shadow-blue-500/30"
-          onClick={onAddTransaction}
-        >
-          <Plus className="w-4 h-4" />
           Add Transaction
         </CustomButton>
+
         {/* <motion.button 
           onClick={onAddTransaction}
           className="bg-[#137fec] text-white font-semibold py-2 px-5 rounded-lg flex items-center gap-2 hover:bg-[#3b82f6] transition-colors duration-200 shadow-lg shadow-blue-500/30"
