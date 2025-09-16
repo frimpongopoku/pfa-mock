@@ -69,7 +69,7 @@ const NavLink = ({ item }: { item: NavItem }) => {
   );
 };
 
-const UserProfile = ({ user }: { user: User }) => {
+export const UserProfile = ({ user }: { user: User }) => {
   return (
     <div className="flex items-center gap-4 mb-10">
       <div
