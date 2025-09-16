@@ -44,7 +44,7 @@ export const ReferralsHero: React.FC<ReferralsHeroProps> = ({
   };
   return (
     <motion.section
-      className="bg-white rounded-xl shadow-sm p-8 border border-slate-200"
+      className="bg-white dark:bg-[var(--custom-card-background)] dark:border-gray-800 rounded-xl shadow-sm p-8 border border-slate-200"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6 }}
@@ -56,10 +56,10 @@ export const ReferralsHero: React.FC<ReferralsHeroProps> = ({
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6, delay: 0.2 }}
         >
-          <h1 className="text-slate-900 text-4xl font-bold leading-tight tracking-tighter">
+          <h1 className="text-slate-900 dark:text-white/80 text-4xl font-bold leading-tight tracking-tighter">
             {title}
           </h1>
-          <p className="text-slate-600 text-lg leading-relaxed">
+          <p className="text-slate-600 text-lg dark:text-white/70 leading-relaxed">
             {description}
           </p>
           <motion.div
@@ -69,7 +69,7 @@ export const ReferralsHero: React.FC<ReferralsHeroProps> = ({
             transition={{ duration: 0.6, delay: 1.0 }}
           >
             <input
-              className="w-full rounded-md border-slate-300 bg-slate-100 h-14 pl-4 pr-32 text-slate-900 placeholder:text-slate-400 focus:ring-blue-500 focus:border-blue-500 font-mono text-sm"
+              className="w-full rounded-md dark:bg-gray-800 dark:text-white/80 border-slate-300 bg-slate-100 h-14 pl-4 pr-32 text-slate-900 placeholder:text-slate-400 focus:ring-blue-500 focus:border-blue-500 font-mono text-sm"
               readOnly
               value={referralCode.fullUrl}
             />

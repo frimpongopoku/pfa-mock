@@ -17,7 +17,7 @@ const FAQItem: React.FC<{
 }> = ({ faq, index, isOpen, onToggle }) => {
   return (
     <motion.div
-      className="p-4 rounded-lg bg-slate-50 border border-slate-200"
+      className="p-4 rounded-lg dark:bg-transparent dark:border-gray-700 bg-slate-50 border border-slate-200"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -27,7 +27,7 @@ const FAQItem: React.FC<{
         onClick={onToggle}
         whileHover={{ x: 2 }}
       >
-        <p className="text-slate-800 font-medium">{faq.question}</p>
+        <p className="text-slate-800 dark:text-white/70 font-medium">{faq.question}</p>
         <motion.div
           animate={{ rotate: isOpen ? 180 : 0 }}
           transition={{ duration: 0.3 }}
@@ -45,7 +45,7 @@ const FAQItem: React.FC<{
             transition={{ duration: 0.3 }}
             className="overflow-hidden"
           >
-            <p className="text-slate-600 mt-4">{faq.answer}</p>
+            <p className="text-slate-600 mt-4 dark:text-white/60">{faq.answer}</p>
           </motion.div>
         )}
       </AnimatePresence>
@@ -68,13 +68,13 @@ export const ReferralFAQ: React.FC<ReferralFAQProps> = ({ faqs }) => {
 
   return (
     <motion.section
-      className="bg-white rounded-xl shadow-sm p-8 border border-slate-200"
+      className="bg-white dark:bg-[var(--custom-card-background)] dark:border-gray-800 rounded-xl shadow-sm p-8 border border-slate-200"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 0.6 }}
     >
       <motion.h2
-        className="text-slate-900 text-2xl font-bold tracking-tight mb-6"
+        className="text-slate-900 text-2xl dark:text-white/80 font-bold tracking-tight mb-6"
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.6, delay: 0.7 }}
