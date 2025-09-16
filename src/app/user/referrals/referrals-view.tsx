@@ -3,7 +3,7 @@
 "use client";
 
 import React from "react";
-import { ReferralsHeader } from "./referrals-header";
+// import { ReferralsHeader } from "./referrals-header";
 import { ReferralsHero } from "./referrals-hero";
 import { RewardProgress } from "./reward-progress";
 import { ReferralHistory } from "./referral-history";
