@@ -24,7 +24,7 @@ export const ReferralsHero: React.FC<ReferralsHeroProps> = ({
   },
   onCopy,
   title = "Invite friends, earn rewards.",
-  description = "Share your unique referral link. When your friends sign up and make their first transaction, you'll both get a $10 bonus. It's that simple!",
+  description = "Share your unique referral link. When your friends sign up and make their first transaction, you'll both get a GH¢ 5 bonus. It's that simple!",
   heroImageUrl = "https://lh3.googleusercontent.com/aida-public/AB6AXuAm_0T29GV4nuCitvBve_MZb2BXLx1cvk3cJAVmbZOQCdp36mYIDZ0F5ReKIgnPpdYYp1Fr8mTvEOCP3FDZxHA1QGWkqN1G2JGLsRjIrFP5Ljt6xVfx1PB7ZdrmqX6XgPlvUrZaeqOK8Tn1J1bhLdcH_N3kBela5UBCBydrfroM8OT00VH9b2vPSCv7E4_u0tSaHJmmZFdkIADXuNjKZ9QWp88uLlX-ICr-nWOz6iF0J21B--cDwfTjpxG_8XxNZ6dMNB7Y-m-KXSms",
 }) => {
   const [copied, setCopied] = useState(false);

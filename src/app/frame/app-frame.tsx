@@ -8,12 +8,14 @@ import { MobileBottomNav } from "./bottom-nav";
 
 function ApplicationFrame({ children }: { children: React.ReactNode }) {
   return (
-    <div className="relative flex h-auto min-h-screen w-full flex-col dark:bg-[var(--background)] bg-[#f1f5f9] overflow-x-hidden">
-      <div className="flex h-full  mx-auto grow">
+    <div className="relative  flex h-auto min-h-screen w-full flex-col dark:bg-[var(--background)] bg-[#f1f5f9] overflow-x-hidden">
+      <div className="flex h-full w-full grow">
         <AppSidebar />
-        <main className="mb-24">
+        <main className="mb-24  w-full">
           <ReferralsHeader title="Hi, Frimpong!" />
-          <div className="flex-1 p-6 sm:p-8 overflow-y-auto">{children}</div>
+          <div className="flex-1 p-6 sm:p-8 overflow-y-auto lg:mx-24">
+            {children}
+          </div>
           <div className="lg:hidden block">
             <MobileBottomNav />
           </div>

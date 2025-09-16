@@ -41,7 +41,7 @@ const MilestoneIcon: React.FC<{
         <Trophy className="w-8 h-8" />
       </div>
       <p className="text-slate-800 font-semibold dark:text-white/80">
-        ${milestone.amount}
+        ¢{milestone.amount}
       </p>
       <p className="text-slate-500 text-sm dark:text-white/60">
         {milestone.status === "earned"
@@ -92,7 +92,7 @@ export const RewardProgress: React.FC<RewardProgressProps> = ({ progress }) => {
             have signed up
           </p>
           <p className="text-blue-600 dark:text-blue-400 font-semibold">
-            ${progress.totalEarned} earned so far
+            ¢{progress.totalEarned} earned so far
           </p>
         </motion.div>
 

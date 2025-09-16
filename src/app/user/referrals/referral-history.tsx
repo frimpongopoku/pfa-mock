@@ -78,7 +78,7 @@ const ReferralRow: React.FC<{
         <StatusBadge status={referral.status} />
       </td>
       <td className="px-4 py-4 text-slate-700 dark:text-white/70 text-right font-medium">
-        ${referral.reward}
+        ¢{referral.reward}
       </td>
     </motion.tr>
   );

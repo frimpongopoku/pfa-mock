@@ -44,16 +44,16 @@ const UnclassifiedTransactionItem: React.FC<{
           <HelpCircle className="w-5 h-5" />
         </div>
         <div>
-          <p className="text-[#1e293b] font-semibold dark:text-white/80">
+          <p className="text-[#1e293b] truncate text-sm font-semibold dark:text-white/80">
             {transaction.name}
           </p>
-          <p className="text-[#64748b] dark:text-white/70 text-sm">
+          <p className="text-[#64748b]  dark:text-white/70 text-sm">
             {formatDate(transaction.date)}
           </p>
         </div>
       </div>
       <p
-        className={`font-semibold font-mono ${
+        className={`font-semibold font-mono text-wrap ${
           transaction.type === "expense"
             ? "text-red-500 dark:text-red-300"
             : "text-green-500 dark:text-green-300"

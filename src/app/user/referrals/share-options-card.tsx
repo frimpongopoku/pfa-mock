@@ -13,13 +13,13 @@ interface ShareOptionsCardProps {
 const defaultShareOptions: ShareOption[] = [
   {
     id: "1",
-    label: "Share via Social Media",
+    label: "Share ",
     icon: "Share2",
     action: "social",
   },
   {
     id: "2",
-    label: "Generate QR Code",
+    label: "QR Code",
     icon: "QrCode",
     action: "qr",
   },
