@@ -33,7 +33,9 @@
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
+    /* --background: 222.2 84% 4.9%; */
+    --custom-card-background : #111a22;
+    --background: #0f172a;
     --foreground: 210 40% 98%;
     --card: 222.2 84% 4.9%;
     --card-foreground: 210 40% 98%;
@@ -62,7 +64,10 @@
 
 @theme inline {
   /* --default-font-family: var(--product-sans), system-ui, sans-serif; */
-  --color-background: hsl(var(--background));
+  /* --color-background: hsl(var(--background)); */
+
+  --color-card-bg: var(--custom-card-background);
+  --color-background: var(--background);
   --color-foreground: hsl(var(--foreground));
   --color-card: hsl(var(--card));
   --color-card-foreground: hsl(var(--card-foreground));
@@ -122,7 +127,8 @@
 }
 
 .dark {
-  --sidebar: hsl(240 5.9% 10%);
+  /* --sidebar: hsl(240 5.9% 10%); */
+  --sidebar: var(--background);
   --sidebar-foreground: hsl(240 4.8% 95.9%);
   --sidebar-primary: hsl(224.3 76.3% 48%);
   --sidebar-primary-foreground: hsl(0 0% 100%);

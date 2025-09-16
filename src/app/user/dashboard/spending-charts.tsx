@@ -1,22 +1,22 @@
 // app/users/dashboard/spending-chart.tsx
 
-import React from 'react';
-import { motion } from 'framer-motion';
-import { CategorySpending, BudgetInfo } from '@/app/types/dashboard';
+import React from "react";
+import { motion } from "framer-motion";
+import { CategorySpending, BudgetInfo } from "@/app/types/dashboard";
 
 interface SpendingChartProps {
   categories: CategorySpending[];
   budgetInfo: BudgetInfo;
 }
 
-const CategoryItem: React.FC<{ category: CategorySpending; index: number }> = ({ 
-  category, 
-  index 
+const CategoryItem: React.FC<{ category: CategorySpending; index: number }> = ({
+  category,
+  index,
 }) => {
   const formatCurrency = (amount: number) => {
-    return new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD',
+    return new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
     }).format(amount);
   };
 
@@ -28,27 +28,31 @@ const CategoryItem: React.FC<{ category: CategorySpending; index: number }> = ({
       transition={{ duration: 0.5, delay: 0.8 + index * 0.1 }}
     >
       <div className="flex items-center gap-3">
-        <div 
+        <div
           className="w-3 h-3 rounded-full"
           style={{ backgroundColor: category.color }}
         />
-        <span className="text-slate-600">{category.name}</span>
+        <span className="text-slate-600 dark:text-white/70">
+          {category.name}
+        </span>
       </div>
-      <span className="font-semibold text-slate-800">{formatCurrency(category.amount)}</span>
+      <span className="font-semibold dark:text-white/80 text-slate-800">
+        {formatCurrency(category.amount)}
+      </span>
     </motion.li>
   );
 };
 
-const DonutChart: React.FC<{ categories: CategorySpending[], totalSpent: number }> = ({ 
-  categories, 
-  totalSpent 
-}) => {
+const DonutChart: React.FC<{
+  categories: CategorySpending[];
+  totalSpent: number;
+}> = ({ categories, totalSpent }) => {
   let cumulativePercentage = 0;
 
   const formatCurrency = (amount: number) => {
-    return new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD',
+    return new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
     }).format(amount);
   };
 
@@ -64,13 +68,13 @@ const DonutChart: React.FC<{ categories: CategorySpending[], totalSpent: number 
           stroke="#e2e8f0"
           strokeWidth="3"
         />
-        
+
         {/* Category arcs */}
         {categories.map((category, index) => {
           const strokeDasharray = `${category.percentage} 100`;
           const strokeDashoffset = -cumulativePercentage;
           cumulativePercentage += category.percentage;
-          
+
           return (
             <motion.circle
               key={category.id}
@@ -90,15 +94,17 @@ const DonutChart: React.FC<{ categories: CategorySpending[], totalSpent: number 
           );
         })}
       </svg>
-      
-      <motion.div 
+
+      <motion.div
         className="absolute inset-0 flex flex-col items-center justify-center"
         initial={{ opacity: 0, scale: 0.5 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.6, delay: 0.3 }}
       >
-        <span className="text-slate-500 text-sm">Total Spent</span>
-        <span className="text-slate-800 text-2xl font-bold">
+        <span className="text-slate-500 text-sm dark:text-white/70">
+          Total Spent
+        </span>
+        <span className="text-slate-800 text-2xl dark:text-white/80 font-bold">
           {formatCurrency(totalSpent)}
         </span>
       </motion.div>
@@ -106,29 +112,33 @@ const DonutChart: React.FC<{ categories: CategorySpending[], totalSpent: number 
   );
 };
 
-const BudgetProgress: React.FC<{ budgetInfo: BudgetInfo }> = ({ budgetInfo }) => {
+const BudgetProgress: React.FC<{ budgetInfo: BudgetInfo }> = ({
+  budgetInfo,
+}) => {
   const formatCurrency = (amount: number) => {
-    return new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD',
+    return new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "USD",
     }).format(amount);
   };
 
   return (
-    <motion.div 
+    <motion.div
       className="mt-6 pt-4 border-t border-slate-200"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 1.2 }}
     >
       <div className="flex justify-between items-center text-sm">
-        <span className="text-slate-500">Monthly Budget</span>
-        <span className="text-slate-800 font-medium">
+        <span className="text-slate-500 dark:text-white/70">
+          Monthly Budget
+        </span>
+        <span className="text-slate-800 dark:text-white/80 font-medium">
           {formatCurrency(budgetInfo.monthlyBudget)}
         </span>
       </div>
       <div className="w-full bg-slate-200 rounded-full h-2.5 mt-2 overflow-hidden">
-        <motion.div 
+        <motion.div
           className="bg-gradient-to-r from-blue-500 to-purple-500 h-2.5 rounded-full"
           initial={{ width: 0 }}
           animate={{ width: `${budgetInfo.budgetUsedPercentage}%` }}
@@ -139,32 +149,38 @@ const BudgetProgress: React.FC<{ budgetInfo: BudgetInfo }> = ({ budgetInfo }) =>
   );
 };
 
-export const SpendingChart: React.FC<SpendingChartProps> = ({ categories, budgetInfo }) => {
+export const SpendingChart: React.FC<SpendingChartProps> = ({
+  categories,
+  budgetInfo,
+}) => {
   return (
     <section>
-      <motion.h2 
-        className="text-[#1e293b] text-2xl font-bold tracking-tight mb-4"
+      <motion.h2
+        className="text-[#1e293b] text-2xl font-bold dark:text-white/80 tracking-tight mb-4"
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.6 }}
       >
         Spending by Category
       </motion.h2>
-      
-      <motion.div 
-        className="bg-white p-6 rounded-2xl shadow-lg shadow-slate-200 border border-slate-200"
+
+      <motion.div
+        className="bg-white p-6 rounded-2xl shadow-lg dark:bg-[var(--custom-card-background)]  dark:border-slate-800 dark:shadow-gray-900 shadow-slate-200 border border-slate-200"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.2 }}
       >
-        <DonutChart categories={categories} totalSpent={budgetInfo.totalSpent} />
-        
+        <DonutChart
+          categories={categories}
+          totalSpent={budgetInfo.totalSpent}
+        />
+
         <ul className="space-y-4">
           {categories.map((category, index) => (
             <CategoryItem key={category.id} category={category} index={index} />
           ))}
         </ul>
-        
+
         <BudgetProgress budgetInfo={budgetInfo} />
       </motion.div>
     </section>

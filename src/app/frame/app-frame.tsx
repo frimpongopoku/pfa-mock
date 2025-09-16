@@ -8,7 +8,7 @@ import { MobileBottomNav } from "./bottom-nav";
 
 function ApplicationFrame({ children }: { children: React.ReactNode }) {
   return (
-    <div className="relative flex h-auto min-h-screen w-full flex-col bg-[#f1f5f9] overflow-x-hidden">
+    <div className="relative flex h-auto min-h-screen w-full flex-col dark:bg-[var(--background)] bg-[#f1f5f9] overflow-x-hidden">
       <div className="flex h-full grow">
         <AppSidebar />
 

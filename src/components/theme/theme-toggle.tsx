@@ -28,6 +28,7 @@ export function ThemeToggle({ lite }: { lite?: boolean }) {
     <div
       // variant="ghost"
       // size="icon"
+      
       aria-label="Toggle theme"
       onClick={() => setTheme(isDark ? "light" : "dark")}
     >

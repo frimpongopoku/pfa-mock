@@ -26,10 +26,10 @@ export const DashboardHeader: React.FC<DashboardHeaderProps> = ({
       transition={{ duration: 0.6 }}
     >
       <div>
-        <h1 className="text-[#1e293b] text-4xl font-bold tracking-tight">
+        <h1 className="text-[#1e293b] text-4xl dark:text-white font-bold tracking-tight">
           {title}
         </h1>
-        <p className="text-[#64748b] mt-1">{subtitle}</p>
+        <p className="text-[#64748b] dark:text-white/70 mt-1">{subtitle}</p>
       </div>
 
       <div className="flex items-center gap-4">

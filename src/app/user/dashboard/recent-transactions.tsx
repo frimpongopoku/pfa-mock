@@ -43,13 +43,19 @@ const TransactionItem: React.FC<{
           <IconComponent className="w-5 h-5" />
         </div>
         <div>
-          <p className="text-[#1e293b] font-semibold">{transaction.name}</p>
-          <p className="text-[#64748b] text-sm">{transaction.category}</p>
+          <p className="text-[#1e293b] font-semibold dark:text-white/90">
+            {transaction.name}
+          </p>
+          <p className="text-[#64748b] text-sm dark:text-white/70">
+            {transaction.category}
+          </p>
         </div>
       </div>
       <p
         className={`font-semibold font-mono ${
-          transaction.type === "expense" ? "text-red-500" : "text-green-500"
+          transaction.type === "expense"
+            ? "text-red-500 dark:text-red-300"
+            : "text-green-500"
         }`}
       >
         {formatCurrency(transaction.amount, transaction.type)}
@@ -64,7 +70,7 @@ export const RecentTransactions: React.FC<RecentTransactionsProps> = ({
   return (
     <section>
       <motion.h2
-        className="text-[#1e293b] text-2xl font-bold tracking-tight mb-4"
+        className="text-[#1e293b] text-2xl font-bold tracking-tight dark:text-white/80 mb-4"
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.6 }}
@@ -72,7 +78,7 @@ export const RecentTransactions: React.FC<RecentTransactionsProps> = ({
         Recent Transactions
       </motion.h2>
       <motion.div
-        className="bg-white p-6 rounded-2xl shadow-lg shadow-slate-200 border border-slate-200"
+        className="bg-white dark:bg-[var(--custom-card-background)]  dark:border-slate-800 p-6 rounded-2xl shadow-lg dark:shadow-gray-900 shadow-slate-200 border border-slate-200"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.2 }}
