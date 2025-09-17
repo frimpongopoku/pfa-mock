@@ -3,7 +3,7 @@ import "./globals.css";
 import localFont from "next/font/local";
 import { AppThemeProvider } from "./providers/theme-provider";
 export const metadata: Metadata = {
-  title: "CeleryCoins - Demo Artefact",
+  title: "CeleryCoins | Frimpong - Demo Artefact",
   description:
     "Demo personal finance application built with Next.js, Tailwind CSS, and TypeScript.",
 };
